@@ -1,0 +1,528 @@
+index.html
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jay's KickAsh BBQ | Ponca City Food Truck</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jay's KickAsh BBQ food truck in Ponca City, OK. Local smoked brisket, ribs, bologna, pulled pork, burgers, and more." />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header / Nav */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #ff5a1f;
+    }
+
+    /* Hero */
+    .hero {
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      padding: 90px 20px 100px;
+    }
+
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-logo {
+      max-width: 240px;
+      margin: 0 auto 25px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p.subheading {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: #ff5a1f;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #e04c12;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .about-card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #ff5a1f;
+      color: #fff;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    /* Location */
+    .location-box {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .location-status {
+      font-weight: 600;
+      color: #ff5a1f;
+      margin-bottom: 8px;
+    }
+
+    /* Menu */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .menu-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .menu-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 6px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+      font-size: 0.96rem;
+    }
+
+    .menu-item span.price {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .menu-note {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 30px;
+    }
+
+    .contact-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .contact-card p {
+      margin-bottom: 8px;
+    }
+
+    .contact-label {
+      font-weight: 600;
+    }
+
+    .social-link {
+      color: #ff5a1f;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #ff5a1f;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-text">Jay's KickAsh BBQ</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <!-- Replace "logo.jpg" with your real logo file path -->
+      <img src=https://scontent-dfw5-1.xx.fbcdn.net/v/t39.30808-6/454731635_122120737784361194_7261283594129733909_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=EHKlLc8lb8kQ7kNvwHHC_3N&_nc_oc=AdkAqn1azQHi_ib5rLXjBzXFxM17yI66Jma-ZW7tl_5Vg4cYKaNsjI4uTrrWSkXIxD41Gu_UblonYYzHIU46Q8Wc&_nc_zt=23&_nc_ht=scontent-dfw5-1.xx&_nc_gid=5dNqHMEt0-BTu3FGUMxdLA&oh=00_AfjDx7MH09Jpo1-nrAYgIFCA2qUzrYDnPyDKEDboMica_A&oe=69299DEC alt="Jay's KickAsh BBQ Logo" class="hero-logo" />
+      <h1>Jay’s KickAsh BBQ</h1>
+      <p class="subheading">Ponca City Local Smoked • Brisket • Ribs • Bologna</p>
+      <a href="#menu" class="btn-primary">View Menu</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title">About Jay’s KickAsh BBQ</h2>
+      <p class="section-subtitle">Smoked low and slow, served hot and fast.</p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <span class="badge">Ponca City, Oklahoma</span>
+          <p>
+            Jay’s KickAsh BBQ is a local food truck bringing legit smoked meat to Ponca City and the
+            surrounding area. Everything is cooked low and slow so you get deep smoke flavor, tender meat,
+            and all the KickAsh sides to go with it.
+          </p>
+          <p>
+            Whether you are in the mood for sliced brisket, ribs, or that old-school smoked bologna, we have
+            you covered. Grab a sandwich, load up some fries or tots, and wash it down with an ice-cold drink.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Signature Items</h3>
+          <ul>
+            <li>Smoked Brisket Sandwich</li>
+            <li>Fall-off-the-bone Ribs</li>
+            <li>Smoked Bologna Sandwich</li>
+            <li>Loaded Fries or Tots with Brisket or Pulled Pork</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="section-inner">
+      <h2 class="section-title">Food Truck Location</h2>
+      <p class="section-subtitle">We are on wheels, so the spot changes — but the BBQ stays the same.</p>
+
+      <div class="location-box">
+        <p class="location-status">Location Varies Daily</p>
+        <p>
+          Jay’s KickAsh BBQ is a traveling food truck. Our current setup spot and serving times are always
+          posted on our Facebook page and updated here when available.
+        </p>
+        <p style="margin-top:12px;">
+          Follow us on Facebook for today’s address, hours, and specials:
+          <br />
+          <a class="social-link"
+             href="https://www.facebook.com/61560835826546/?modal=focused_switcher_dialog"
+             target="_blank"
+             rel="noopener">
+            Jay’s KickAsh BBQ on Facebook
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="section-inner">
+      <h2 class="section-title">Menu</h2>
+      <p class="section-subtitle">Prices and items may vary slightly based on availability.</p>
+
+      <div class="menu-grid">
+        <!-- Sandwiches & Mains -->
+        <div class="menu-card">
+          <h3>Sandwiches &amp; Plates</h3>
+
+          <div class="menu-item">
+            <span>Brisket Sandwich</span>
+            <span class="price">$10.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Brisket Sandwich with Side &amp; Drink</span>
+            <span class="price">$13.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>Pulled Pork Sandwich</span>
+            <span class="price">$9.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Pulled Pork Sandwich with Side &amp; Drink</span>
+            <span class="price">$12.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>Bologna Sandwich</span>
+            <span class="price">$8.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Bologna Sandwich with Side &amp; Drink</span>
+            <span class="price">$11.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>3 Ribs</span>
+            <span class="price">$10.00</span>
+          </div>
+          <div class="menu-item">
+            <span>3 Ribs with Side &amp; Drink</span>
+            <span class="price">$13.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>Nachos (Brisket or Pork)</span>
+            <span class="price">$8.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Nachos Loaded (Brisket or Pork)</span>
+            <span class="price">$12.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>Hamburger</span>
+            <span class="price">$8.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Hamburger with Side &amp; Drink</span>
+            <span class="price">$10.00</span>
+          </div>
+
+          <div class="menu-item">
+            <span>Cheeseburger</span>
+            <span class="price">$9.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Cheeseburger with Side &amp; Drink</span>
+            <span class="price">$11.00</span>
+          </div>
+        </div>
+
+        <!-- Sides -->
+        <div class="menu-card">
+          <h3>Sides</h3>
+
+          <div class="menu-item">
+            <span>Fries or Tots</span>
+            <span class="price">$4.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Loaded Fries/Tots with Cheese &amp; Brisket or Pulled Pork</span>
+            <span class="price">$10.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Smoked Beans</span>
+            <span class="price">$4.00</span>
+          </div>
+          <div class="menu-item">
+            <span>Potato Salad</span>
+            <span class="price">$4.00</span>
+          </div>
+
+          <p class="menu-note">
+            Make it a combo by adding a side and a drink to most mains.
+          </p>
+        </div>
+
+        <!-- Drinks -->
+        <div class="menu-card">
+          <h3>Drinks</h3>
+          <div class="menu-item">
+            <span>Any Drink</span>
+            <span class="price">$2.00</span>
+          </div>
+
+          <ul style="margin-top:10px; padding-left:18px; font-size:0.95rem;">
+            <li>Water</li>
+            <li>Pepsi / Diet Pepsi</li>
+            <li>Coke / Diet Coke</li>
+            <li>Dr Pepper / Diet Dr Pepper</li>
+            <li>Mt. Dew / Diet Mt. Dew</li>
+            <li>Sprite</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Contact &amp; Catering</h2>
+      <p class="section-subtitle">
+        Have an event, job site, or craving for KickAsh BBQ? Reach out and we will work out the details.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <p><span class="contact-label">Phone:</span> <a href="tel:15804910286">(580) 491-0286</a></p>
+          <p><span class="contact-label">Location:</span> Ponca City, OK (food truck – location varies)</p>
+          <p><span class="contact-label">Facebook:</span>
+            <a class="social-link"
+               href="https://www.facebook.com/61560835826546/?modal=focused_switcher_dialog"
+               target="_blank"
+               rel="noopener">
+              Message us on Facebook
+            </a>
+          </p>
+          <p style="margin-top:10px;">
+            For catering inquiries, large orders, or special events, call or send us a Facebook message with
+            your date, headcount, and what you are thinking of serving.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="margin-bottom:8px;">Quick Inquiry (sample text)</h3>
+          <p style="font-size:0.95rem;">
+            You can copy and paste this into a text or Facebook message:
+          </p>
+          <pre style="margin-top:10px; font-size:0.85rem; white-space:pre-wrap; background:#f7f7f7; padding:10px; border-radius:4px;">
+Hi Jay’s KickAsh BBQ! I would like to ask about having the truck at my event.
+
+Date:
+Location:
+Estimated guests:
+Preferred meats/sides:
+
+Thank you!</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; <span id="year"></span> Jay’s KickAsh BBQ. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
