@@ -66,37 +66,38 @@ nav a:hover {
 
 /* =========================
    HERO – BASE LAYOUT
-   (Background is controlled
-   by the modifier classes
-   below: .hero--smoke, etc.)
 ========================= */
 .hero {
   text-align: center;
   padding: 90px 20px 100px;
-  color: white;
+  color: #fff;
   position: relative;
   overflow: hidden;
 }
 
 .hero::before {
-  /* dark overlay so text stays readable */
+  /* ONE overlay only (keeps text readable without getting muddy) */
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.52);
 }
 
 .hero-inner {
   position: relative;
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
   z-index: 1; /* above overlay */
 }
 
 .hero-logo {
-  max-width: 220px;
-  margin: 0 auto 25px;
+  max-width: 240px;
+  width: 100%;
+  margin: 0 auto 22px;
   display: block;
+
+  /* makes it look crisp over the background */
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.7));
 }
 
 .hero h1 {
@@ -107,42 +108,41 @@ nav a:hover {
 }
 
 .hero p.subheading {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 25px;
+  color: rgba(255,255,255,0.92);
 }
 
 /* CTA BUTTON */
 .btn-primary {
   display: inline-block;
   background-color: #ff3b30;
-  color: white;
+  color: #fff;
   padding: 12px 26px;
-  border-radius: 6px;
-  font-weight: 600;
+  border-radius: 8px;
+  font-weight: 700;
   border: none;
   cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
 .btn-primary:hover {
   background-color: #d92a20;
+  transform: translateY(-1px);
 }
 
 /* =========================
    HERO BACKGROUND OPTIONS
    Choose ONE class in HTML:
-   hero--smoke  / hero--grill  / hero--embers
+   hero--smoke / hero--grill / hero--embers / hero--wood
 ========================= */
 
-/* OPTION 1: SMOKY PHOTO BACKGROUND
-   (Good for real BBQ vibe) */
 .hero--smoke {
   background-image: url("https://images.unsplash.com/photo-1556911220-e15b29be8cbd?q=80&w=1600");
   background-size: cover;
   background-position: center;
 }
 
-/* OPTION 2: DARK GRILL LINES
-   (Pure CSS, no image) */
 .hero--grill {
   background-image: linear-gradient(
       135deg,
@@ -154,8 +154,6 @@ nav a:hover {
   background-position: center;
 }
 
-/* OPTION 3: GLOWING EMBERS
-   (Dark background with orange “coal” dots) */
 .hero--embers {
   background-color: #050505;
   background-image: radial-gradient(
@@ -177,11 +175,10 @@ nav a:hover {
   background-position: center;
 }
 
-/* OPTION 4: STACKED WOOD BACKGROUND */
 .hero--wood {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("firewood-pallet.jpg"); /* ← your exact path */
+  /* IMPORTANT: remove the extra gradient overlay here
+     because .hero::before already provides the overlay */
+  background-image: url("firewood-pallet.jpg"); /* your exact path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -222,23 +219,11 @@ section {
 .contact-card {
   background-color: #111;
   border: 2px solid #ff3b30;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 20px;
   color: #fff;
-  box-shadow: 0 0 12px rgba(255, 59, 48, 0.2);
+  box-shadow: 0 0 12px rgba(255, 59, 48, 0.18);
 }
-
-/* If you want white cards with black text instead,
-   uncomment this block and it will override the above:
-
-.about-card,
-.location-box,
-.menu-card,
-.contact-card {
-  background-color: #fff;
-  color: #000;
-}
-*/
 
 /* =========================
    ABOUT
@@ -266,7 +251,7 @@ section {
 }
 
 .location-status {
-  font-weight: 600;
+  font-weight: 700;
   color: #ff3b30;
   margin-bottom: 8px;
 }
@@ -290,6 +275,7 @@ section {
   display: flex;
   justify-content: space-between;
   margin-bottom: 6px;
+  gap: 14px;
 }
 
 .menu-item .price {
@@ -313,12 +299,24 @@ section {
 }
 
 .contact-label {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .social-link {
   color: #ff3b30;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+/* Make <pre> in the contact card look cleaner */
+pre {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  background: #0c0c0c;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ff3b30;
 }
 
 /* =========================
@@ -337,6 +335,14 @@ footer {
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
+  header {
+    padding: 12px 16px;
+  }
+
+  nav ul {
+    gap: 14px;
+  }
+
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -348,5 +354,14 @@ footer {
 
   .hero h1 {
     font-size: 2.2rem;
+  }
+
+  .hero-logo {
+    max-width: 210px;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
   }
 }
