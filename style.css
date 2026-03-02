@@ -307,6 +307,20 @@ section {
   font-weight: 700;
 }
 
+/* CONTACT SECTION LAYOUT FIX */
+.contact-wrap{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;            /* prevents the left box stretching tall */
+}
+
+@media (max-width: 900px){
+  .contact-wrap{
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Make <pre> in the contact card look cleaner */
 pre {
   margin-top: 10px;
